@@ -13,4 +13,4 @@ Run `ng serve`
 
 ## Production
 
-Run `npm install && npm build-prod && npm start`
+Run `npm install && npm run build-prod && npm start`
