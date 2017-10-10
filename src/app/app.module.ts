@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import {SuiModule} from 'ng2-semantic-ui';
+import { SuiModule } from 'ng2-semantic-ui';
+
+import { ApiService } from 'app/shared/api.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +21,9 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     SuiModule
   ],
-  providers: [],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
