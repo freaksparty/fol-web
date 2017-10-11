@@ -7,7 +7,7 @@ export class ApiService {
   private api;
 
   constructor() {
-    this.api = FPAPI.create("http://localhost:4000/api").events(2);
+    //this.api = FPAPI.create("http://localhost:4000/api").events(2);
   }
 
   get fol() {
