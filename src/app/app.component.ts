@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from 'app/shared/api.service';
 
 @Component({
   selector: 'fol-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fol works!';
+
+  constructor(api: ApiService) {
+    api.fol.sponsors().all().subscribe(
+      (sponsors) => console.log(sponsors),
+      (error) => console.error(error),
+      () => console.log("all done")
+    )
+  }
 }
