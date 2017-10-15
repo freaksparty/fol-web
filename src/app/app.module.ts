@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { SuiModule } from 'ng2-semantic-ui';
 
 import { ApiService } from 'app/shared/api.service';
+import { EnvironmentService } from 'app/shared/environment.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +23,8 @@ import { AppComponent } from './app.component';
     SuiModule
   ],
   providers: [
-    ApiService
+    ApiService,
+    EnvironmentService
   ],
   bootstrap: [AppComponent]
 })

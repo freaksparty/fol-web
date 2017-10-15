@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import { EnvironmentService } from 'app/shared/environment.service';
 
 declare var FPAPI;
 
@@ -6,8 +7,10 @@ declare var FPAPI;
 export class ApiService {
   private api;
 
-  constructor() {
-    //this.api = FPAPI.create("http://localhost:4000/api").events(2);
+  constructor(
+    env: EnvironmentService
+  ) {
+    this.api = FPAPI.create(env.endpoint).events(env.event);
   }
 
   get fol() {
