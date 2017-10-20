@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { ApiService } from 'app/shared/api.service';
 
 @Component({
@@ -6,25 +6,21 @@ import { ApiService } from 'app/shared/api.service';
   templateUrl: './sponsors.component.html',
   styleUrls: ['./sponsors.component.less']
 })
-export class SponsorsComponent implements OnInit{
-  sponsors = [];
-  
-    constructor(private api: ApiService) {}
+export class SponsorsComponent implements OnInit {
+  private sponsors = [];
 
-    ngOnInit(): void {
-      this.api.fol.sponsors().all().subscribe(
-        (response) => this.onLoadSponsors(response),
-        (error, statusCode) => console.error(error),
-        () => console.log("Sponsors loaded")
-      )
-    }
+  constructor(private api: ApiService,
+              private zone: NgZone) {}
 
-    ngAfterViewInit(){
-      console.log("HI");
-    }
+  ngOnInit(): void {
+    this.api.fol.sponsors().all().subscribe(
+      (response) => this.onLoadSponsors(response),
+      (error, statusCode) => console.error(error),
+      () => console.log("Sponsors loaded")
+    );
+  }
 
-    private onLoadSponsors(sponsors:Array<Object>) : void {
-      this.sponsors.splice(0, this.sponsors.length);
-      this.sponsors = this.sponsors.concat(sponsors);
-    }
+  private onLoadSponsors(sponsors) {
+    this.zone.run(() => {this.sponsors = sponsors;});
+  }
 }
