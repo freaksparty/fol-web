@@ -10,10 +10,18 @@ import { EnvironmentService } from 'app/shared/environment.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MainComponent } from './main/main.component';
+import { SponsorsComponent } from './main/sponsors/sponsors.component';
+import { MenuComponent } from './main/common/menu/menu.component';
+import { NewsComponent } from './main/news/news.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponent,
+    SponsorsComponent,
+    MenuComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
