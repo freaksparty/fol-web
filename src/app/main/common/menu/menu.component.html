@@ -1,0 +1,21 @@
+<div class="ui stackable inverted menu">
+    <a class="header item">
+        <img src="assets/logos/{{logo}}" />
+    </a>
+    <div *ngIf="activities" class="ui dropdown item" suiDropdown>
+        Actividades
+        <i class="dropdown icon"></i>
+        <div class="menu" suiDropdownMenu>
+            <div *ngFor="let activity of activities" class="item">
+                {{activity.name}}
+            </div>
+        </div>
+    </div>
+    <a class="item" href="http://foro.ficonlan.es" target="_blank">Foro</a>
+    <a class="item" href="https://www.fic.udc.es/gl/onde-estamos" target="_blank">Cómo llegar</a>
+    <div class="right menu">
+        <a class="item">
+            <div class="ui button">Sign Up</div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="ui centered grid container">
+    <div class="four wide mobile three wide tablet two wide computer column" *ngFor="let sponsor of sponsors">
+        <a *ngIf="sponsor.url" href="{{sponsor.url}}" target="_blank">
+          <img class="ui fluid image" src="{{sponsor.image_url}}" alt="{{sponsor.name}}" />
+        </a>
+
+        <img *ngIf="!sponsor.url" class="ui fluid image" src="{{sponsor.image_url}}" alt="{{sponsor.name}}" />
+    </div>
+</div>
