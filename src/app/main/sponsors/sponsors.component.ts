@@ -21,6 +21,6 @@ export class SponsorsComponent implements OnInit {
   }
 
   private onLoadSponsors(sponsors) {
-    this.zone.run(() => {this.sponsors = sponsors;});
+    this.sponsors = sponsors;
   }
 }
