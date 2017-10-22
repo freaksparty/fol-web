@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { ApiService } from 'app/shared/api.service';
 
 @Component({
@@ -7,14 +7,21 @@ import { ApiService } from 'app/shared/api.service';
   styleUrls: ['./main.component.less']
 })
 export class MainComponent {
-  activities = [];
+  private activities = [];
+  private news = [];
   
-    constructor(api: ApiService) {
-      api.fol.nested().all().subscribe(
-        (response) => this.activities=response.activities,
+    constructor(private api: ApiService, private zone: NgZone) {}
+
+    ngOnInit(): void {
+      this.api.fol.nested().all().subscribe(
+        (response) => this.onLoadData(response),
         (error, statusCode) => console.error(error),
-        () => console.log(this.activities)
+        () => console.log("Data loaded")
       )
     }
-
+  
+    private onLoadData(data) {
+      this.zone.run(() => {this.activities = data.activities;});
+      this.zone.run(() => {this.news = data.news;});
+    }
 }

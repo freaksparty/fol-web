@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from 'app/shared/api.service';
 
 @Component({
@@ -7,20 +7,11 @@ import { ApiService } from 'app/shared/api.service';
   styleUrls: ['./news.component.less']
 })
 export class NewsComponent implements OnInit {
-  news = [];
+  @Input() news:any[];
+  private math = Math;
+  private pages = Array;
   
-    constructor(private api: ApiService) {}
+    constructor() {}
 
-    ngOnInit(): void {
-      this.api.fol.news().all().subscribe(
-        (response) => this.onLoadNews(response),
-        (error, statusCode) => console.error(error),
-        () => console.log("News loaded")
-      )
-    }
-
-    private onLoadNews(news:Array<Object>) : void {
-      this.news.splice(0, this.news.length);
-      this.news = this.news.concat(news);
-    }
+    ngOnInit(): void {}
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, NgZone } from '@angular/core';
 import { ApiService } from 'app/shared/api.service';
 
 @Component({
@@ -8,21 +8,11 @@ import { ApiService } from 'app/shared/api.service';
 })
 export class MenuComponent implements OnInit {
   @Input() event: string;
-  activities = [];
+  @Input() logo: string;
+  @Input() activities: any[];
 
-  constructor(private api: ApiService) { }
+  constructor(private zone: NgZone) {}
 
-  ngOnInit(): void {
-    this.api.fol.activities().all().subscribe(
-      (response) => this.onLoadActivities(response),
-      (error, statusCode) => console.error(error),
-      () => console.log("Activities loaded")
-    )
-  }
-
-  private onLoadActivities(activities:Array<Object>) : void {
-    this.activities.splice(0, this.activities.length);
-    this.activities = this.activities.concat(activities);
-  }
+  ngOnInit(): void {}
 
 }

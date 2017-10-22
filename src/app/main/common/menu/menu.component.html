@@ -1,20 +1,21 @@
-<div class="ui labeled icon menu">
-    <a class="item">
-        <i class="home icon"></i>
-        {{event}}
+<div class="ui inverted menu">
+    <a class="header item">
+        <img src="assets/logos/{{logo}}" />
     </a>
-    <div class="ui pointing dropdown link item" *ngIf="activities" suiDropdown>
-        <i class="calendar icon"></i>
-        Activities <i class="dropdown icon"></i>
+    <div *ngIf="activities" class="ui dropdown item" suiDropdown>
+        Actividades
+        <i class="dropdown icon"></i>
         <div class="menu" suiDropdownMenu>
-            <div *ngFor="let activity of activities">
-                <a class="item">{{activity.name}}</a>
+            <div *ngFor="let activity of activities" class="item">
+                {{activity.name}}
             </div>
         </div>
     </div>
+    <a class="item" href="http://foro.ficonlan.es" target="_blank">Foro</a>
+    <a class="item" href="https://www.fic.udc.es/gl/onde-estamos" target="_blank">Cómo llegar</a>
     <div class="right menu">
-        <div class="item">
+        <a class="item">
             <div class="ui primary button">Sign Up</div>
-        </div>
+        </a>
     </div>
 </div>
