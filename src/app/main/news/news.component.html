@@ -6,27 +6,28 @@
 				<img src="{{new.image_url}}">
 				</div>
 				<div class="content">
-				<a class="header">{{new.title}}</a>
-				<div class="description">
-					<p></p>
-				</div>
-				<div class="extra">
-					<span *ngIf="new.creator">{{new.creator.name}}</span>
-					<span *ngIf="new.reg_date_publish">{{new.reg_date_publish | date:'dd/MM/yyyy hh:mm'}}</span>
-					<div class="ui right floated primary button">
+					<a class="header">{{new.title}}</a>
+					<div class="extra">
+						<span *ngIf="new.creator">{{new.creator.name}}</span>
+						<span *ngIf="new.reg_date_publish">{{new.reg_date_publish | date:'dd/MM/yyyy hh:mm'}}</span>
+					</div>
+					<div *ngIf="new.description" class="description">
+						<p>{{new.description}}</p>
+					</div>
+					<div class="ui right floated button">
 						Ver más
 						<i class="right chevron icon"></i>
 					</div>
 				</div>
-				</div>
 			</div>
 		</div>
     </div>
-    <div class="ui segment">
+    <div class="ui center aligned segment">
         <sui-pagination [collectionSize]="collectionSize"
                         [pageSize]="pageSize"
 						[hasNavigationLinks]="navigation"
 						[hasBoundaryLinks]="boundary"
+						[maxSize]="maxSize"
 						[hasEllipses]="ellipses"
 						[canRotate]="true"
 						[(page)]="selectedPage">

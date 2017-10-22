@@ -8,10 +8,11 @@ import { ApiService } from 'app/shared/api.service';
 })
 export class NewsComponent implements OnInit {
   @Input() private news = [];
-  private pageSize = 5;
+  private pageSize = 7;
+  private maxSize = 3;
   private selectedPage = 1;
   private navigation = true;
-  private boundary = true;
+  private boundary = false;
 
   constructor() {}
 

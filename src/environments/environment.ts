@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   endpoint: 'http://dev-fpbackend.herokuapp.com/api',
-  event: 5
+  event: 6
 };
