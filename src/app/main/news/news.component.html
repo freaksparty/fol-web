@@ -1,15 +1,30 @@
 <div class="ui segments">
     <div class="ui segment">
-		<div class="ui divided items" *ngIf="news">
+		<div class="ui relaxed items" *ngIf="news">
 			<div class="item" *ngFor="let new of selectedNews">
 				<div class="image" *ngIf="new.image_url">
-				<img src="{{new.image_url}}">
+					<img src="{{new.image_url}}">
 				</div>
 				<div class="content">
 					<a class="header">{{new.title}}</a>
 					<div class="extra">
-						<span *ngIf="new.creator">{{new.creator.name}}</span>
-						<span *ngIf="new.reg_date_publish">{{new.reg_date_publish | date:'dd/MM/yyyy hh:mm'}}</span>
+						<span *ngIf="new.creator">
+							<span class="ui label">
+								<i class="user icon"></i>
+								{{new.creator.name}}
+							</span>
+						</span>
+						<span *ngIf="new.reg_date_publish">
+							<span class="ui label">
+								<i class="clock icon"></i>
+								{{new.reg_date_publish | date:'dd/MM/yyyy hh:mm'}}
+							</span>
+						</span>
+						<span *ngIf="new.priority">
+							<span class="ui red label">
+								Importante
+							</span>
+						</span>
 					</div>
 					<div *ngIf="new.description" class="description">
 						<p>{{new.description}}</p>

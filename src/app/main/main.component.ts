@@ -7,6 +7,7 @@ import { ApiService } from 'app/shared/api.service';
   styleUrls: ['./main.component.less']
 })
 export class MainComponent implements OnInit{
+  private event = [];
   private activities = [];
   private news = [];
 
@@ -21,7 +22,17 @@ export class MainComponent implements OnInit{
   }
 
   private onLoadData(data) {
+    this.event = data;
     this.activities = data.activities;
+
+    data.news.sort((a, b) => {
+        console.log(a);
+        console.log(b);
+        if (a.reg_date_publish < b.reg_date_publish) return 1;
+        else if (a.reg_date_publish > b.reg_date_publish) return -1;
+        else return 0;
+    });
+
     this.news = data.news;
   }
 }
