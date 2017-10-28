@@ -14,10 +14,10 @@
 								{{new.creator.name}}
 							</span>
 						</span>
-						<span *ngIf="new.reg_date_publish">
+						<span *ngIf="new.published_at">
 							<span class="ui label">
 								<i class="clock icon"></i>
-								{{new.reg_date_publish | date:'dd/MM/yyyy hh:mm'}}
+								{{new.published_at | date:'dd/MM/yyyy hh:mm'}}
 							</span>
 						</span>
 						<span *ngIf="new.priority">
@@ -26,12 +26,8 @@
 							</span>
 						</span>
 					</div>
-					<div *ngIf="new.description" class="description">
-						<p>{{new.description}}</p>
-					</div>
-					<div class="ui right floated button">
-						Ver más
-						<i class="right chevron icon"></i>
+					<div *ngIf="new.summary" class="description">
+						<p>{{new.summary}}</p>
 					</div>
 				</div>
 			</div>

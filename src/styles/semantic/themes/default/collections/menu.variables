@@ -1,6 +1,10 @@
+@smartphones: ~"only screen and (max-width: 479px)";
+
 /*******************************
              Menu
 *******************************/
+
+@primaryColor: #a2ff3f;
 
 /*-------------------
       Collection
@@ -302,7 +306,7 @@
 /* Icon */
 @iconMenuTextAlign: center;
 @iconMenuItemColor: @black;
-@iconMenuInvertedItemColor: @white;
+@iconMenuInvertedItemColor: @primaryColor;
 
 
 /* Tabular */
@@ -456,3 +460,27 @@
 @hugeWidth: 20rem;
 @bigWidth: 22rem;
 @massiveWidth: 25rem;
+
+@media @smartphones {
+	@imageWidth: 3em;
+
+  a{
+    .computer.only{
+      display: none;
+    }
+
+    .mobile.only{
+      display: block;
+    }
+  }
+}
+
+a{
+  .computer.only{
+    display: block;
+  }
+
+  .mobile.only{
+    display: none;
+  }
+}

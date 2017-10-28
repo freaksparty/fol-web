@@ -1,21 +1,22 @@
-<div class="ui fixed stackable inverted menu">
-    <a class="header item">
+<div class="ui fixed labeled icon inverted menu">
+    <a class="header item computer only">
         <img src="assets/logos/{{logo}}" />
     </a>
-    <div *ngIf="activities" class="ui dropdown item" suiDropdown>
-        Actividades
-        <i class="dropdown icon"></i>
-        <div class="menu" suiDropdownMenu>
-            <div *ngFor="let activity of activities" class="item">
-                {{activity.name}}
-            </div>
-        </div>
-    </div>
-    <a class="item" href="http://foro.ficonlan.es" target="_blank">Foro</a>
-    <a class="item" href="https://www.fic.udc.es/gl/onde-estamos" target="_blank">Cómo llegar</a>
+    <a class="header item mobile only">
+        <img src="assets/logos/{{logo_mobile}}" />
+    </a>
+    <a class="item" href="#">
+        <i class="calendar icon"></i>
+        <span>Actividades</span>
+    </a>
+    <a class="item" href="http://foro.ficonlan.es" target="_blank">
+        <i class="bomb icon"></i>
+        <span>Foro</span>
+    </a>
     <div class="right menu">
         <a class="item">
-            <div class="ui button">Cuenta</div>
+            <i class="user circle outline icon"></i>
+            <span>Cuenta</span>
         </a>
     </div>
 </div>

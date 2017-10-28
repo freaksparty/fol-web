@@ -9,6 +9,7 @@ import { ApiService } from 'app/shared/api.service';
 export class MenuComponent implements OnInit {
   @Input() event: string;
   @Input() logo: string;
+  @Input() logo_mobile: string;
   @Input() activities: any[];
 
   constructor(private zone: NgZone) {}

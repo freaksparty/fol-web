@@ -1,14 +1,15 @@
 <div class="row">
-    <div class="ui grid stackable container">
+    <div class="ui middle align grid stackable container">
         <div class="sixteen wide column">
-            <fol-menu event="FOL" logo="logo_fol.png" [activities]="activities"></fol-menu>
+            <fol-menu event="FOL" logo="logo_fol.png" logo_mobile="minilogo.png" [activities]="activities"></fol-menu>
             <div class="ui divider hidden"></div>
             <div class="ui divider hidden"></div>
         </div>
+        <div class="ui divider hidden"></div>
         <div class="sixteen wide column">
-            <p>
+            <h2>
                 {{event.description}}
-            </p>
+            </h2>
         </div>
         <div class="twelve wide tablet ten wide computer column">
             <fol-news [news]="news"></fol-news>

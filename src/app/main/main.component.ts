@@ -14,25 +14,24 @@ export class MainComponent implements OnInit{
   constructor(private api: ApiService, private zone: NgZone) {}
 
   ngOnInit(): void {
-    this.api.fol.nested().all().subscribe(
+    this.api.fol.all().subscribe(
       (response) => this.onLoadData(response),
       (error, statusCode) => console.error(error),
       () => console.log("Data loaded")
     );
+
+    this.api.fol.news().all({mode: "basic"}).subscribe(
+      (response) => this.onLoadNews(response),
+      (error, statusCode) => console.error(error),
+      () => console.log("News loaded")
+    );
   }
 
   private onLoadData(data) {
-    this.event = data;
-    this.activities = data.activities;
+    this.event = data[0];
+  }
 
-    data.news.sort((a, b) => {
-        console.log(a);
-        console.log(b);
-        if (a.reg_date_publish < b.reg_date_publish) return 1;
-        else if (a.reg_date_publish > b.reg_date_publish) return -1;
-        else return 0;
-    });
-
-    this.news = data.news;
+  private onLoadNews(data) {
+    this.news = data;
   }
 }
