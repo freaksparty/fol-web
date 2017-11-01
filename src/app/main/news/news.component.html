@@ -1,6 +1,6 @@
 <div class="ui segments">
     <div class="ui segment">
-		<div class="ui relaxed items" *ngIf="news">
+		<div class="ui relaxed link items" *ngIf="news">
 			<div class="item" *ngFor="let new of selectedNews">
 				<div class="image" *ngIf="new.image_url">
 					<img src="{{new.image_url}}">

@@ -14,6 +14,7 @@ import { MainComponent } from './main/main.component';
 import { SponsorsComponent } from './main/sponsors/sponsors.component';
 import { MenuComponent } from './main/common/menu/menu.component';
 import { NewsComponent } from './main/news/news.component';
+import { FooterComponent } from './main/common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NewsComponent } from './main/news/news.component';
     MainComponent,
     SponsorsComponent,
     MenuComponent,
-    NewsComponent
+    NewsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

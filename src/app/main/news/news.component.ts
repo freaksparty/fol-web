@@ -11,7 +11,6 @@ export class NewsComponent implements OnInit {
   private pageSize = 7;
   private maxSize = 3;
   private selectedPage = 1;
-  private navigation = true;
   private boundary = false;
 
   constructor() {}
@@ -20,8 +19,17 @@ export class NewsComponent implements OnInit {
 
   }
 
+  get navigation(): Boolean {
+    return this.news.length>this.pageSize;
+  }
+
   get collectionSize(): Number {
-    return this.news.length;
+    if(this.news.length>this.pageSize){
+      return this.news.length;
+    }
+    else{
+      return 0;
+    }
   }
 
   get selectedNews(): any[] {
